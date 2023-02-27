@@ -7,7 +7,6 @@
 
 #import "ViewController.h"
 #import "XQRender.h"
-#include <string>
 
 @interface ViewController ()
 
@@ -47,20 +46,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-//    self.button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    self.button.frame = CGRectMake(50, 50, 100, 40);
-//    [self.button setTitle:@"测试按钮" forState:UIControlStateNormal];
-//    [self.button setTitle:@"测试按钮" forState:UIControlStateHighlighted];
-//    [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-//    [self.button addTarget:self action:@selector(clickButton) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:self.button];
+    self.button = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.button.frame = CGRectMake(50, 50, 100, 40);
+    [self.button setTitle:@"Metal测试" forState:UIControlStateNormal];
+    [self.button setTitle:@"Metal测试" forState:UIControlStateHighlighted];
+    [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self.button addTarget:self action:@selector(clickButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.button];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if (_render == nullptr) {
+- (void)clickButton {
+    if (!_render) {
         _renderView = [[MTKView alloc] initWithFrame:self.view.bounds];
         _renderView.device = MTLCreateSystemDefaultDevice();
         if(!_renderView.device)

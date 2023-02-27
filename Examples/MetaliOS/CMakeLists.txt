@@ -40,6 +40,7 @@ set(APP_HEADER_FILES
   ./MetalViewController.h
   ./CppInterface.h
   ./Prefix.pch
+  ./XQRender.h
 )
 
 set(APP_SOURCE_FILES
@@ -48,12 +49,39 @@ set(APP_SOURCE_FILES
   ./ViewController.m
   ./MetalViewController.mm
   ./CppInterface.mm
+  ./XQRender.mm
   ./main.m
 )
+
 
 set(RESOURCES
   ./Main.storyboard
   ./LaunchScreen.storyboard
+  ../Resources/distortion.efk
+  ../Resources/Laser01.efkefc
+  ../Resources/Laser01_reload.efkefc
+  ../Resources/square_b.efkefc
+  ../Resources/square_g.efkefc
+  ../Resources/square_r.efkefc
+  ../Resources/TriggerLaser.efkefc
+  ../Resources/Texture/Burst01.png
+  ../Resources/Texture/Cloud01.png
+  ../Resources/Texture/Flame01.png
+  ../Resources/Texture/LaserMain01.png
+  ../Resources/Texture/LaserMain02.png
+  ../Resources/Texture/Particle01.png
+  ../Resources/Texture/Particle02.png
+  ../Resources/Texture/Particle03.png
+  ../Resources/Texture/Particle04_bokashi_hard.png
+  ../Resources/Texture/Particle04_bokashi_soft.png
+  ../Resources/Texture/Particle04_clear_hard.png
+  ../Resources/Texture/Particle04_clear_soft.png
+  ../Resources/Texture/Ring01.png
+  ../Resources/Texture/Splash01.png
+  ../Resources/Texture/SwordLine01.png
+  ../Resources/Texture/Thunder01.png
+  ../Resources/Texture/Wind01.png
+  ../Resources/Texture/Wind02.png
 )
 
 add_executable(
@@ -110,6 +138,7 @@ find_library(QUARTZ_CORE_LIBRARY QuartzCore)
 find_library(UIKIT UIKit)
 find_library(FOUNDATION Foundation)
 find_library(METAL Metal)
+find_library(METALIOSKit MetalKit)
 find_library(CFNETWORK CFNetwork)
 find_library(SYSTEMCONFIGURATION SystemConfiguration)
 
@@ -117,6 +146,7 @@ find_library(SYSTEMCONFIGURATION SystemConfiguration)
 target_link_libraries(${APP_NAME} ${UIKIT})
 target_link_libraries(${APP_NAME} ${FOUNDATION})
 target_link_libraries(${APP_NAME} ${METAL})
+target_link_libraries(${APP_NAME} ${METALIOSKit})
 target_link_libraries(${APP_NAME} ${CFNETWORK})
 target_link_libraries(${APP_NAME} ${QUARTZ_CORE_LIBRARY})
 target_link_libraries(${APP_NAME} ${SYSTEMCONFIGURATION} Effekseer LLGI EffekseerRendererMetal)

@@ -1,4 +1,4 @@
-﻿
+
 #ifndef __EFFEKSEER_RESOURCE_MANAGER_H__
 #define __EFFEKSEER_RESOURCE_MANAGER_H__
 
@@ -134,7 +134,7 @@ private:
 		bool isCacheEnabled = true;
 		LOADER loader;
 		CustomUnorderedMap<StringView<char16_t>, LoadCounted<RESOURCE>, StringView<char16_t>::Hash> cached;
-
+        // jessicatli this->loader为空
 		template <typename... Arg>
 		RESOURCE Load(const char16_t* path, Arg&&... args)
 		{

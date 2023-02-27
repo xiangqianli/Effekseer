@@ -1,4 +1,4 @@
-﻿
+
 //----------------------------------------------------------------------------------
 //
 //----------------------------------------------------------------------------------
@@ -206,7 +206,7 @@ bool EffectFactory::OnLoading(Effect* effect, const void* data, int32_t size, fl
 {
 	return this->LoadBody(effect, data, size, magnification, materialPath);
 }
-
+// jessicatli 加载资源
 void EffectFactory::OnLoadingResource(Effect* effect, const void* data, int32_t size, const char16_t* materialPath)
 {
 	auto resourceMgr = effect->GetSetting()->GetResourceManager();
